@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+<div style="height:400px; width:100% ;backface-visibility:hidden;background-color:#E36072">
+<img src="images\logo2.jpg" style="border-radius:50%; position:fixed; margin-left:40%; margin-top:30px" alt=image height="200px">
+<img src="images\img102.jpg" style="opacity:0.2 ; position:fixed" alt=image height="400px" width="100%"/>
+<h3><p class="padding-align margin-align" id="user-name"></p></h3>
+<h4><p id="user-id" class="padding-align"></p></h4>
+<h4><p id="user-location" class="padding-align"</p></h4>
+</div>
+<nav style="background-color:black" class="navbar navbar-inverse">
+ <div class="container-fluid">
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href=""><i><strong><u><img style="width:15%; height:25px " src="images/logo2.jpg" alt="No picture">WebDesign</u></strong></i></a>
+   </div>
+   <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
+       <li><a href="#">Home</a></li>
+       <li><a href="https://www.jabong.com/customer/self-help-desk/">Help</a></li>
+       <li><a href="http://www.jabong.com/sports-store/">Sports</a></li>
+       <li><a href="http://www.jabong.com/sports-store/">The Juice</a></li>
+     </ul>
+   <form class="navbar-form navbar-left">
+     <div class="input-group">
+       <input type="text" class="form-control" placeholder="Search">
+       <div class="input-group-btn">
+         <button class="btn btn-default" type="submit">
+           <i class="glyphicon glyphicon-search"></i>
+         </button>
+       </div>
+     </div>
+   </form>
+     <ul class="nav navbar-nav navbar-right">
+       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+   <ul class="dropdown-menu dropstyle">
+   <li><input type="text" placeholder="Username"></li>
+   <li><input type="text" placeholder="Password"></li>
+   <li><input style="margin-left:60px; color:black" type="submit" value="Login"></li>
+   </ul>
+   </li>
+     </ul>
+   </div>
+ </div>
+</nav>
+<div>
+  <h1 class="text-center"> About What we do</h1>
+<img src="images/img2.jpeg" style="float:left" height="300px">
+<p class="text-right" style="margin-right:50px">
+Jabong.com is a young and vibrant company that aims to provide good quality branded products. Jabong.com caters to the fashion needs of men, women and kids across footwear, apparel, jewellery and accessories.</p>
+</div>
+<div>
+</div>
+<script>
+$(document).ready(function(){
+$.ajax({
+         url:"https://public-api.wordpress.com/rest/v1/sites/dotnetask.wordpress.com",
+         success: function(data){
+           console.log(data)
+           //$("#user-name").attr("src",data.avatar_url);
+           $("#user-name").text("Hello my name is :"+data.name);
+         $("#user-id").text("My id is :"+data.id);
+     $("#user-location").text("User created at "+data.description);
+     $("#user-url").text("User company is : "+data.url);
+     },
+         error: function(){
+           $("#user-name").attr("src","no-user.png");
+           $("#user-id").text("User not found");
+         $("#user-location").text("Not Exist");
+     $("#user-url").text("Not Exist");
+     }
+       })
+     });
+</script>
+<footer style="margin-top:260px;width:100%; background-color:#E36072">
+@copyright webshoppe
+</footer>
+</body>
+
+</html>
